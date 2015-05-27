@@ -1,3 +1,109 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container{
+	width: 100%;
+	padding: 0;
+}
+
+section{
+	margin-top: -20px;
+    height: 800px;
+}
+
+.center-div {
+    top: 50%;
+    position: relative;
+    max-width: 60%;
+    margin: auto auto;
+    color: #ebebeb;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-50%);
+}
+.background {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#slide-1 {
+    font-weight: bold;
+	h1 { 
+        color: white;  
+        text-shadow: 1px 1px black;
+    }
+    p {
+        color: white;
+        text-shadow: 1px 1px black;
+    	opacity: 0.8;
+		font-size: 200%;
+	}
+	.background { 
+		background:  linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('bathroom.jpg');
+        filter: alpha(opacity=60);
+	}
+}
+#slide-2 {
+	position: relative;
+	.background { 
+        background-image: url('world_map.jpg'); 
+        background-position: 50% 0px;
+        background-size: cover;
+    }
+	h1 { color: black; }
+}
+
+#slide-3 {
+	position: relative;
+    .background {
+        background-image: url('world_map.jpg'); 
+        background-position: 50% 0px;
+        background-size: cover;
+    }
+    #pins{
+        background-position: 50% 0px;
+        background-attachment: fixed;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 800px;
+        z-index: 1;
+        opacity: 1;
+        background-image: url('pins.png');
+    }
+    #pin1 { @extend #pins; background-image: url('pins1.png'); }
+    #pin2 { @extend #pins; background-image: url('pins2.png'); }
+    #pin3 { @extend #pins; background-image: url('pins3.png'); }
+    #pin4 { @extend #pins; background-image: url('pins4.png'); }
+    h1 { color: black; }
+    img {
+        position: relative;
+        width: 20px;
+        opacity: 0;
+    }
+}
+
+#slide-4 {
+	position: relative;
+	z-index: 2;
+    .background { background-image: url('phone.jpg'); }
+    height: 700px;
+    h1 { color: white; }
+}
+
+#slide-5{
+	h1{ color: black; }
+	opacity: 1;
+}
+
+#email-group{
+    width: 300px;
+    margin: 0 auto;
+}

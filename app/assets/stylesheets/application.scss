@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 0;
+}
+
+.alert{
+	padding: 5px;
+	margin-bottom: 0;
+}
+
+.section-holder{
+	width: 970px;
+	padding: 20px;
+	margin: 0 auto;
+}

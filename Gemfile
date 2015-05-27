@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use pg as the database for Active Record
+gem 'pg'
+
+gem 'unicorn'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -32,7 +34,21 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem "twitter-bootstrap-rails"
+# Parallax Front page
+gem 'skrollr-rails'
+
+# User creation
+gem 'devise','>= 2.0.0'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
+# Use boostrap
+gem 'bootstrap-sass', '~> 3.3.3'
+
+# Use 64 bit int primary keys for ids
+gem 'rails-bigint-pk', '~>1.1.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

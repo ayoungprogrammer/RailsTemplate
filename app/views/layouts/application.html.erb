@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RailsTemplate</title>
+  <title>MY APP</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="#">Some Store</a>
-        <div class="nav-collapse">
-          <ul class="nav">
-            <li>asdasda</li>
-          </ul>
-        </div>
+        </button>
+        <a class="navbar-brand" href="<%= root_url %>">MY APP</a>
       </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+          <li><a href="<%= settings_path %>">Settings</a></li>
+          <li><a href="<%= sign_out_path %>">Logout</a></li>
+          <% elsif %>
+          <li><a href="<%= sign_in_path %>">Login</a></li>
+          <% end %>
+        </ul>
+      </div><!--/.nav-collapse -->
     </div>
-  </div>
-
+  </nav>
+  <% if flash[:notice] %>
+    <div class="alert alert-info"><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="alert alert-danger"><%= flash[:alert] %></div>
+  <% end %>
   <div class="container">
-    <div class="row">
-      <div class="span9"><%= yield %></div>
-      <div class="span3">
-        <h2>About Us</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </div>
-    </div>
+    <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
+  <%= javascript_include_tag "application" %>
 </body>
 </html>
