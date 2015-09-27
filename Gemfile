@@ -34,9 +34,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Parallax Front page
-gem 'skrollr-rails'
-
 # User creation
 gem 'devise','>= 2.0.0'
 
@@ -50,14 +47,42 @@ gem 'bootstrap-sass', '~> 3.3.3'
 # Use 64 bit int primary keys for ids
 gem 'rails-bigint-pk', '~>1.1.0'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# Inject css
+gem 'premailer-rails'
+gem 'nokogiri'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# Heroku gems
+gem 'rails_12factor', group: :production
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# gem 'resque'
+# gem 'redis'
+
+# # Resque mailer
+# gem 'resque_mailer'
+
+# # Scheudling jbos
+# gem 'resque-scheduler'
+
+# # Web view for resque
+# gem 'resque-web', require: 'resque_web'
+# gem 'resque-scheduler-web'
+
+
+
+# Dev tools
+group :development, :test do
+  # Shh with the assets
+  gem 'quiet_assets'
+  # Rspec for rails
+  gem 'rspec-rails', '~> 3.0'
+  # Create factories
+  gem 'factory_girl_rails'
+  # Clean database after tests
+  gem 'database_cleaner'
+  # Prelaod code
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'parallel_tests'
+  gem 'pry'
+end
